@@ -30,6 +30,7 @@ function AddTripBtn() {
   const [selectedState, setselectedState] = useState("");
   const [images, setimages] = useState<string>("");
   const [loading, setloading] = useState(false);
+  const [openDialog, setopenDialog] = useState(false);
   const [input, setinput] = useState<Place>({
     name: "",
     city: "",
@@ -83,6 +84,7 @@ function AddTripBtn() {
       });
       setselectedState("");
       setimages("");
+      setopenDialog(false);
     } catch (error: any) {
       toast.error(error.response.data.message);
       console.log(error);
@@ -91,7 +93,7 @@ function AddTripBtn() {
     }
   };
   return (
-    <Dialog>
+    <Dialog open={openDialog} onOpenChange={setopenDialog}>
       <DialogTrigger asChild>
         <Button variant="outline" className="cursor-pointer">
           Add Tourist Place

@@ -17,4 +17,5 @@ export interface Booking {
   endDate: Date;
   people: number;
   place: Place;
+  referenceId: string;
 }

@@ -22,7 +22,7 @@ export const addPlace = async (req, res, next) => {
 export const GetAllPlaces = async (req, res, next) => {
     try {
         const page = req.query.page || 1;
-        const limit = req.query.limit || 3;
+        const limit = req.query.limit || 8;
         const skip = (page - 1) * limit;
 
         const totalPlaces = await PlacesModel.find().countDocuments();
