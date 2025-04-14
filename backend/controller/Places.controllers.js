@@ -32,7 +32,6 @@ export const GetAllPlaces = async (req, res, next) => {
         res.status(200).json({
             places,
             currentPage: page,
-            totalPlaces,
         });
     } catch (error) {
         console.log("Error in GetAllPlaces Controller : " + error);
