@@ -34,7 +34,6 @@ export const GetAllPlaces = async (req, res, next) => {
             places,
             currentPage: page,
             totalPlaces,
-            totalPages: Math.ceil(totalPlaces / limit)
         });
     } catch (error) {
         console.log("Error in GetAllPlaces Controller : " + error);
