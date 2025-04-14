@@ -71,7 +71,7 @@ function BookTripDialog({
             {selectedPlace?.description}
           </p>
         </div>
-        {selectedPlace && <InputContent selectedPlace={selectedPlace} />}
+        {selectedPlace && <InputContent selectedPlace={selectedPlace}  />}
       </DialogContent>
     </Dialog>
   );

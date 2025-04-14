@@ -13,7 +13,7 @@ function Home() {
     fetchPlaces();
   }, [fetchPlaces]);
   return (
-    <div className="h-screen">
+    <div className="h-[calc(100vh-100px)]">
       <div className="flex justify-end h-12 items-center mt-3">
         <AddTripBtn />
       </div>
@@ -31,10 +31,12 @@ function Home() {
                   className="w-full h-48 object-cover mb-2"
                 />
                 <h2 className="text-lg font-semibold">{place.name}</h2>
-                <p className="text-gray-600">
+                <p className="text-gray-600 line-clamp-1">
                   {place.city}, {place.state}, ({place.country})
                 </p>
-                <p className="text-gray-600">{place.description}</p>
+                <p className="text-gray-600 line-clamp-1">
+                  {place.description}
+                </p>
                 <BookTripDialog selectedPlace={selectedPlace}>
                   <Button
                     onClick={() => setselectedPlace(place)}
