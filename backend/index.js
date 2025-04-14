@@ -1,10 +1,11 @@
-import express from 'express';
+import express, { application } from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './lib/dbConn.js';
 
 // importing routes
 import placesRoute from './routes/Places.route.js';
+import bookingRoute from './routes/booking.routes.js';
 
 dotenv.config();
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use('/api/v1/places', placesRoute);
+app.use("/api/v1/bookings", bookingRoute);
 
 app.use((err, req, res, next) => {
     res.status(500).json({ message: process.env.NODE_ENV === "production" ? "Internal Server Error" : "Internal Server Error" + err.message });

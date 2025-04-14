@@ -7,7 +7,7 @@ import { Calendar } from "../ui/calendar";
 import { useState } from "react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
-import { CalendarSearch, Loader } from "lucide-react";
+import { CalendarSearch, Check, Copy, Loader } from "lucide-react";
 import axios from "axios";
 import { BASE_API_URL } from "../../../contants/api";
 import { toast } from "sonner";
@@ -26,6 +26,7 @@ function InputContent({ selectedPlace }: { selectedPlace: Place }) {
   });
   const [loading, setloading] = useState<boolean>(false);
   const [referenceId, setreferenceId] = useState<string | null>(null);
+  const [copied, setcopied] = useState<boolean>(false);
 
   const handleSubmmit = async () => {
     try {
@@ -67,17 +68,30 @@ function InputContent({ selectedPlace }: { selectedPlace: Place }) {
       setloading(false);
     }
   };
+  const handleCopy = () => {
+    navigator.clipboard.writeText(referenceId!);
+    setcopied(true);
+    toast.success("Copied to clipboard");
+  };
   return (
     selectedPlace && (
       <ScrollArea>
         {referenceId ? (
           <div className="flex items-center justify-center p-2">
             <div className="flex flex-col gap-4 text-center">
-              <h1 className="text-2xl font-serif">
-                Your Reference ID is:{" "}
-                <strong className="text-emerald-600 font-mono">
+              <h1 className="text-2xl font-serif flex items-center justify-center">
+                Your Reference ID is:{"  "}
+                <strong className="text-emerald-600 font-mono mt-1">
                   {referenceId}
                 </strong>
+                {copied ? (
+                  <Check className="ml-2 size-4" />
+                ) : (
+                  <Copy
+                    className="ml-2 size-4 cursor-pointer"
+                    onClick={handleCopy}
+                  />
+                )}
               </h1>
               <div className="font-mono">
                 <p className="text-muted-foreground text-sm">

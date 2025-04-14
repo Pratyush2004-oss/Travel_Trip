@@ -3,8 +3,7 @@ import BookingModel from "../models/Booking.model.js";
 // booking Trip
 export const bookTrip = async (req, res, next) => {
     try {
-        const { place } = req.params;
-        const { name, email, phone, startDate, endDate, people } = req.body;
+        const { name, email, phone, startDate, endDate, people, place } = req.body;
         if (!place || !name || !email || !phone || !startDate || !endDate || !people) return res.status(400).json({ message: "All fields are required" });
 
         const referenceId = Math.floor(Math.random() * 10000000);
@@ -34,7 +33,7 @@ export const getBookingsByCredentials = async (req, res, next) => {
     try {
         const { referenceId, email } = req.body;
 
-        const booking = await BookingModel.findOne({ referenceId, email });
+        const booking = await BookingModel.findOne({ referenceId, email }).populate("place");
 
         if (!booking) return res.status(404).json({ message: "Booking not found" });
 
