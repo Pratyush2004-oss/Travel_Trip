@@ -22,7 +22,7 @@ function TripDetails({ trip }: { trip: Booking }) {
         </div>
         <div className="flex items-center gap-2">
           <h1 className="font-bold">End Date:</h1>{" "}
-          <p>{trip.startDate.toString().split("T")[0]}</p>
+          <p>{trip.endDate.toString().split("T")[0]}</p>
         </div>
         <div className="flex items-center gap-2">
           <h1 className="font-bold">No. of People:</h1> <p>{trip.people}</p>
