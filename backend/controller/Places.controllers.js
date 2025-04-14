@@ -25,7 +25,6 @@ export const GetAllPlaces = async (req, res, next) => {
         const limit = req.query.limit || 8;
         const skip = (page - 1) * limit;
 
-        const totalPlaces = await PlacesModel.find().countDocuments();
         const places = await PlacesModel.find().sort({ createdAt: -1 })
             .skip(skip)
             .limit(limit);
