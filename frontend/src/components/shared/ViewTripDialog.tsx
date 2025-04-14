@@ -12,7 +12,7 @@ import { Button } from "../ui/button";
 import { Loader } from "lucide-react";
 import { Booking } from "types/types";
 import axios from "axios";
-import { BASE_API_URL } from "../../../contants/api";
+import { BASE_API_URL } from "../../contants/api";
 import { toast } from "sonner";
 import PlaceDetails from "./PlaceDetails";
 import TripDetails from "./TripDetails";

@@ -9,7 +9,7 @@ import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { cn } from "@/lib/utils";
 import { CalendarSearch, Check, Copy, Loader } from "lucide-react";
 import axios from "axios";
-import { BASE_API_URL } from "../../../contants/api";
+import { BASE_API_URL } from "../../contants/api";
 import { toast } from "sonner";
 
 function InputContent({ selectedPlace }: { selectedPlace: Place }) {

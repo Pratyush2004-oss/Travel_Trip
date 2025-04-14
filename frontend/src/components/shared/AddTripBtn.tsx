@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import axios from "axios";
-import { BASE_API_URL } from "../../../contants/api";
+import { BASE_API_URL } from "../../contants/api";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

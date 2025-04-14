@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { Place } from "../types/types.js";
 import axios from "axios";
-import { BASE_API_URL } from "../contants/api.ts";
+import { BASE_API_URL } from "../src/contants/api.ts";
 interface PlacesState {
   places: Place[];
   selectedPlace: Place | null;
