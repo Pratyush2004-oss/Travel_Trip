@@ -30,7 +30,6 @@ function InputContent({ selectedPlace }: { selectedPlace: Place }) {
 
   const handleSubmmit = async () => {
     try {
-      console.log(input);
       if (
         !input.place ||
         !input.name ||

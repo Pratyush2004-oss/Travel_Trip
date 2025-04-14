@@ -14,7 +14,7 @@ function Home() {
   }, [fetchPlaces]);
   return (
     <div className="h-[calc(100vh-100px)]">
-      <div className="flex justify-end h-12 items-center mt-3">
+      <div className="flex justify-between h-12 items-center mt-3">
         <AddTripBtn />
       </div>
       {!loading && !error ? (
